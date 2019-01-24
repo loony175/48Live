@@ -1,5 +1,8 @@
 # 48Live
 
+# 最近某些直播源换到阿里云了，不允许跨域
+# 本来打算用反向代理的，但是服务器带宽不够- -
+
 ## 预览：[http://48live.jarvay.cn](http://48live.jarvay.cn)
    目前只在Chrome下测试通过
 
