@@ -9,7 +9,7 @@
     <meta name="description" content="口袋48网页版,口袋48电脑版">
     <meta name="keywords" content="口袋48网页版,口袋48电脑版">
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}?v={{str_random()}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
 <div id="app">
@@ -17,6 +17,6 @@
         <router-view></router-view>
     </div>
 </div>
-<script src="{{asset('js/app.js')}}?v={{str_random()}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
