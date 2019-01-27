@@ -5,7 +5,8 @@
         <Layout>
             <Header class="header">
                 <div>
-                    <Cascader class="cascader" placeholder="请选择成员" :data="members" v-model="selectedMember"></Cascader>
+                    <Cascader filterable="" class="cascader" placeholder="请选择成员" :data="members"
+                            v-model="selectedMember"></Cascader>
 
                     <span style="margin-left:16px;color:white;">获取条数</span>
 

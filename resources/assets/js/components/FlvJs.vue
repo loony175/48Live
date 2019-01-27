@@ -367,6 +367,7 @@
                         messages.forEach(message => {
                             if(message.type == 'text'){
                                 const custom = JSON.parse(message.custom);
+                                console.log(custom);
                                 switch(custom.contentType){
                                     case 1: //弹幕消息
                                         let level = 1;
@@ -393,12 +394,9 @@
                                         this.number = custom.content.number;
                                         break;
                                     case 8:
-                                        if(custom.content.liveStatus == 2){ //直播结束
                                             this.endShow = true;
-                                        }
                                         break;
                                     default:
-                                        console.log(custom);
                                         break;
                                 }
                             }else{
