@@ -23,8 +23,6 @@ class LiveController extends Controller
 
 	const URL_CHATROOM_TOKEN = 'http://zhibo.ckg48.com/Server/do_ajax_setcookie';
 
-	const PROXY_URL = 'http://live-proxy.jarvay.cn/live/';
-
 	/**
 	 * 获取直播列表
 	 * @return array
@@ -103,8 +101,6 @@ class LiveController extends Controller
 		}
 
 		$data = $result['content'];
-
-		$data['streamPath'] = str_replace('http://alcdn.f01.xiaoka.tv/live/', self::PROXY_URL, $data['streamPath']);
 
 		$data['member'] = Member::query()->where('member_id', $data['memberId'])->select([
 			'member_id',
