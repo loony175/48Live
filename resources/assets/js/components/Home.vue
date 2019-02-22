@@ -114,7 +114,7 @@
                 pageSize:16,
                 members:[],
                 selectedMember:[],
-                limit:800,
+                limit:80,
                 liveTotal:0,
                 reviewTotal:0,
                 livePage:1,
