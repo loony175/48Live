@@ -55,7 +55,7 @@
                                         </a>
                                     </Col>
                                 </Row>
-                                <Page :current="livePage" :total="liveTotal" :page-size="pageSize" size="small"
+                                <Page :current="livePage" :total="liveTotal" :page-size="pageSize"
                                         show-total
                                         @on-change="onLivePageChange"></Page>
                             </TabPane>
@@ -85,7 +85,7 @@
                                         </a>
                                     </Col>
                                 </Row>
-                                <Page :current="reviewPage" :total="reviewTotal" :page-size="pageSize" size="small"
+                                <Page :current="reviewPage" :total="reviewTotal" :page-size="pageSize"
                                         show-total
                                         @on-change="onReviewPageChange"></Page>
                             </TabPane>
@@ -114,7 +114,7 @@
                 pageSize:16,
                 members:[],
                 selectedMember:[],
-                limit:800,
+                limit:80,
                 liveTotal:0,
                 reviewTotal:0,
                 livePage:1,
@@ -206,9 +206,9 @@
                 this.currentReviewList = this.reviewList.slice(start, start + this.pageSize);
             },
             getUrl:function(item){
-                if(item.streamPath.includes('.flv') || item.streamPath.includes('.mp4')){
+                if(item.streamPath.includes('.mp4')){
                     return '/#/flvjs/' + item.liveId;
-                }else if(item.streamPath.includes('.m3u8')){
+                }else if(item.streamPath.includes('.flv') || item.streamPath.includes('.m3u8')){
                     return '/#/videojs/' + item.liveId;
                 }else{
                     return '/#/';

@@ -15,13 +15,6 @@ import 'iview/dist/styles/iview.css';
 
 import flvjs from 'flv.js';
 
-import VueVideoPlayer from 'vue-video-player';
-require('video.js/dist/video-js.css');
-require('vue-video-player/src/custom-theme.css');
-import 'videojs-contrib-hls';
-import 'videojs-flash';
-
-
 import 'vue-github-buttons/dist/vue-github-buttons.css';
 import VueGitHubButtons from 'vue-github-buttons';
 
@@ -34,7 +27,6 @@ import VueGitHubButtons from 'vue-github-buttons';
 Vue.use(VueGitHubButtons, { useCache: true });
 Vue.use(VueRouter);
 Vue.use(iView);
-Vue.use(VueVideoPlayer);
 Vue.prototype.$flvjs = flvjs;
 
 const router = new VueRouter({

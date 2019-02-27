@@ -81,8 +81,6 @@
     const STATUS_PLAYING = 1;
     const STATUS_PREPARED = 0;
 
-    const BARRAGE_SEND_INTERVAL = 5;   //弹幕发送间隔
-
     export default {
         name:'FlvJs',
         components:{Casitem, Barrage, PlayerControls, PlayerHeader},
@@ -113,7 +111,7 @@
                 senderNameReadonly:false,
                 sendDisabled:false,
                 sendText:'发送',
-                seconds:BARRAGE_SEND_INTERVAL,
+                seconds:Tools.BARRAGE_SEND_INTERVAL,
                 chatroom:null,
                 endTipsShow:false,
                 number:0,   //观看人数
@@ -284,7 +282,8 @@
                 }
             },
             sendBarrage:function(){
-                if(this.seconds != BARRAGE_SEND_INTERVAL || this.content.length == 0 || this.senderName.length == 0){
+                if(this.seconds != Tools.BARRAGE_SEND_INTERVAL || this.content.length == 0 || this.senderName.length
+                    == 0){
                     return;
                 }
                 const custom = {
@@ -329,7 +328,7 @@
                             if(this.seconds == 0){
                                 this.sendText = '发送';
                                 clearInterval(timer);
-                                this.seconds = BARRAGE_SEND_INTERVAL;
+                                this.seconds = Tools.BARRAGE_SEND_INTERVAL;
                                 this.sendDisabled = false;
                             }
                         }, 1000);

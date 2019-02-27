@@ -124,5 +124,6 @@ class Tools {
 }
 
 Tools.info = null;
+Tools.BARRAGE_SEND_INTERVAL = 5;   //弹幕发送间隔
 
 export default Tools;
