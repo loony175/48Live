@@ -17,7 +17,6 @@
                         </Carousel>
 
                         <video id="video-js" class="video" v-else></video>
-                        <!--<video-player ref="videoPlayer" class="video" :options="playerOptions" v-else></video-player>-->
 
                         <PlayerControls ref="controls" :is-muted="isMuted" :show-progress="isReview"
                                 :show-play-button="isReview"
@@ -413,7 +412,7 @@
                 Tools.chatroom(options).then(chatroom => {
                     this.chatroom = chatroom;
                 }).catch(error => {
-                    this.$Notice.success({
+                    this.$Notice.error({
                         title:'聊天室token获取失败',
                         desc:''
                     });
