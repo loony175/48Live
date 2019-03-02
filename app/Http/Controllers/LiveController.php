@@ -21,7 +21,7 @@ class LiveController extends Controller
 	const URL_MEMBER_LIVE_PAGE = 'https://plive.48.cn/livesystem/api/live/v1/memberLivePage';
 	const URL_MEMBER_LIVE_SHOW = 'https://plive.48.cn/livesystem/api/live/v1/getLiveOne';
 
-	const URL_CHATROOM_TOKEN = 'http://zhibo.ckg48.com/Server/do_ajax_setcookie';
+	const URL_CHATROOM_TOKEN = 'https://live.48.cn/Server/do_ajax_setcookie';
 
 	/**
 	 * 获取直播列表

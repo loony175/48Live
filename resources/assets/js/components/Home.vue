@@ -34,16 +34,15 @@
                                         :key="index">
                                     <Col style="padding: 4px;" span="3" v-for="(item, i) in currentLiveList"
                                             v-if="i <  index * 8 && i >= (index - 1) * 8" :key="item.liveId">
-                                        <!--没找到48聊天室断开websocket的api，所以出现这种情况-->
                                         <a :href="getUrl(item)" target="_blank">
                                             <Card>
                                                 <p slot="title">{{item.subTitle}}</p>
 
                                                 <img ref="cover" class="cover" :src="item.cover">
-                                                <p style="color:#ccc;">{{item.date}}</p>
-                                                <div style="display: flex;justify-content: space-between;">
+                                                <p class="date-text">{{item.date}}</p>
+                                                <div class="member-container">
                                                     <div>
-                                                        <span style="color: #000;">{{item.member_name}}</span>
+                                                        <span class="member-name">{{item.member_name}}</span>
                                                         <span class="team-badge"
                                                                 :style="{'background-color':'#' + item.team.color}">{{item
                                                             .team.team_name}}</span>
@@ -70,10 +69,10 @@
                                                 <p slot="title">{{item.subTitle}}</p>
 
                                                 <img ref="cover" class="cover" :src="item.cover">
-                                                <p style="color:#ccc;">{{item.date}}</p>
-                                                <div style="display: flex;justify-content: space-between;">
+                                                <p class="date-text">{{item.date}}</p>
+                                                <div class="member-container">
                                                     <div>
-                                                        <span style="color: #000;">{{item.member_name}}</span>
+                                                        <span class="member-name">{{item.member_name}}</span>
                                                         <span class="team-badge"
                                                                 :style="{'background-color':'#' + item.team.color}">
                                                             {{item.team.team_name}}</span>
@@ -93,7 +92,7 @@
                     </div>
                 </Card>
             </Content>
-            <Footer class="layout-footer-center">2018 &copy; Jarvay  超绝可爱黄婷婷</Footer>
+            <Footer class="layout-footer-center">2018 &copy; Jarvay 超绝可爱黄婷婷</Footer>
         </Layout>
     </div>
 </template>
@@ -124,16 +123,16 @@
         created:function(){
             this.getList();
 
-            Tools.getInfo().then(info =>{
-                this.members = info.groups.map(group =>{
+            Tools.getInfo().then(info => {
+                this.members = info.groups.map(group => {
                     return {
                         value:group.group_id,
                         label:group.group_name,
-                        children:group.teams.map(team =>{
+                        children:group.teams.map(team => {
                             return {
                                 value:team.team_id,
                                 label:team.team_name,
-                                children:team.members.map(member =>{
+                                children:team.members.map(member => {
                                     return {
                                         value:member.member_id,
                                         label:member.real_name
@@ -151,7 +150,7 @@
                     this.coverWidth = this.$refs.cover[0].offsetWidth;
                 }
 
-                this.$refs.cover.forEach(item =>{
+                this.$refs.cover.forEach(item => {
                     item.style.height = this.coverWidth + 'px';
                 });
             }
@@ -164,9 +163,9 @@
                         memberId:this.selectedMember[2],
                         limit:this.limit
                     }
-                }).then(res =>{
+                }).then(res => {
                     if(res.data.errorCode == 0){
-                        this.liveList = res.data.data.liveList.map(item =>{
+                        this.liveList = res.data.data.liveList.map(item => {
                             item.cover = Tools.pictureUrls(item.picPath)[0];
                             item.date = new Date(item.startTime).format('yyyy-MM-dd hh:mm');
                             item.team.team_name = item.team.team_name.replace('TEAM ', '');
@@ -174,7 +173,7 @@
                         });
                         this.liveTotal = this.liveList.length;
 
-                        this.reviewList = res.data.data.reviewList.map(item =>{
+                        this.reviewList = res.data.data.reviewList.map(item => {
                             item.cover = Tools.pictureUrls(item.picPath)[0];
                             item.date = new Date(item.startTime).format('yyyy-MM-dd hh:mm');
                             item.team.team_name = item.team.team_name.replace('TEAM ', '');
@@ -190,7 +189,7 @@
                         console.log(res.data.msg);
                         this.spinShow = false;
                     }
-                }).catch(error =>{
+                }).catch(error => {
                     this.spinShow = false;
                     console.log(error);
                 });
@@ -206,7 +205,7 @@
                 this.currentReviewList = this.reviewList.slice(start, start + this.pageSize);
             },
             getUrl:function(item){
-                if(item.streamPath.includes('.mp4')){
+                if(item.streamPath.includes('.mp4') || item.liveType == 2){
                     return '/#/flvjs/' + item.liveId;
                 }else if(item.streamPath.includes('.flv') || item.streamPath.includes('.m3u8')){
                     return '/#/videojs/' + item.liveId;
@@ -232,13 +231,26 @@
         min-width: 240px;
     }
 
-    .header{
+    .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    .ivu-layout-header{
+    .ivu-layout-header {
         padding: 0 32px;
+    }
+
+    .member-name {
+        color: #000;
+    }
+
+    .member-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .date-text {
+        color: #ccc;
     }
 </style>

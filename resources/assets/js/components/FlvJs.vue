@@ -410,7 +410,7 @@
                 Tools.chatroom(options).then(chatroom => {
                     this.chatroom = chatroom;
                 }).catch(error => {
-                    this.$Notice.success({
+                    this.$Notice.error({
                         title:'聊天室token获取失败',
                         desc:''
                     });
