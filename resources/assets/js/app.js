@@ -24,7 +24,7 @@ import VueGitHubButtons from 'vue-github-buttons';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(VueGitHubButtons, { useCache: true });
+Vue.use(VueGitHubButtons, {useCache: true});
 Vue.use(VueRouter);
 Vue.use(iView);
 Vue.prototype.$flvjs = flvjs;
@@ -35,6 +35,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     router,
-    el:'#app',
+    el: '#app',
 });
 
