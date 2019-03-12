@@ -4,21 +4,21 @@ import VideoJs from './components/VideoJs';
 
 const routes = [
     {
-        path:'/',
-        components:{
-            default:Home
+        path: '/',
+        components: {
+            default: Home
         }
     },
     {
-        path:'/flvjs/:liveId',
-        components:{
-            default:FlvJs
+        path: '/flvjs/:liveId',
+        components: {
+            default: FlvJs
         }
     },
     {
-        path:'/videojs/:liveId',
-        components:{
-            default:VideoJs
+        path: '/videojs/:liveId',
+        components: {
+            default: VideoJs
         }
     }
 ];

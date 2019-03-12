@@ -53,6 +53,10 @@ div[id^="vjs_video_"] {
   display: flex;
 }
 
+.video-box {
+  position: relative;
+}
+
 .video {
   display: flex;
   justify-content: center;
@@ -60,10 +64,15 @@ div[id^="vjs_video_"] {
   height: 640px;
 }
 
+.barrage-input-box {
+  display: flex;
+}
+
 .barrage-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   .barrage-box {
     flex: 1 0 auto;
     height: 640px;

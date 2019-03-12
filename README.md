@@ -12,6 +12,7 @@
 
 ```bash
 composer update
+php artisan migrate
 npm install
 npm run dev
 ```
@@ -34,6 +35,3 @@ npm run dev
 * ### [video.js](https://github.com/videojs/video.js)
 * ### [flv.js](https://github.com/Bilibili/flv.js)
 * ### [iview](https://github.com/iview/iview)
-
-## 最后
-# 超绝可爱黄婷婷
