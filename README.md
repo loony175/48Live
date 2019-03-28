@@ -1,5 +1,8 @@
 # 48Live
 
+# 大概IP被关小黑屋了？
+# 可以尝试离线版的[48live-electron](https://github.com/Jarvay/48live-electron)
+
 ## 预览：[http://48live.jarvay.cn](http://48live.jarvay.cn)
    目前只在Chrome下测试通过
 
